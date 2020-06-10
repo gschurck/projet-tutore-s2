@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">IUT Manager</string>
-    <string name="title_home">Accueil</string>
-    <string name="title_dashboard">Gestion groupes</string>
-    <string name="title_notifications">Déplacement</string>
-    <string name="calendrier">Calendrier</string>
-</resources>

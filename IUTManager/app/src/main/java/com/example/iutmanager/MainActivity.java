@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<String> arrayList;
-    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        ListView listView = (ListView) findViewById(R.id.listeEtudiants);
-
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("test");
-        /*String[] items = {"test", "oui"};
-        arrayList = new ArrayList<>(Arrays.asList(items));*/
-        adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.fragment_dashboard,arrayList);
-        listView.setAdapter(adapter);
     }
 
 }

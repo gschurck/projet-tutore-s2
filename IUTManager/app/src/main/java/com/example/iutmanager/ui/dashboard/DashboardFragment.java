@@ -50,7 +50,7 @@ public class DashboardFragment extends Fragment {
 
         ArrayAdapter adapter = new ArrayAdapter(dashboardViewModel,R.layout.fragment_dashboard),
         listeEtudiants.setAdapter(adapter);*/
-        String[] etudiants = {"first", "second", "third","first", "second", "third","first", "second", "third"};
+        String[] etudiants = {"Jean", "Siméon", "Martin","Manuel", "Emma"};
         ListView listView = (ListView) root.findViewById(R.id.listeEtudiants);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, etudiants);
         listView.setAdapter(adapter);

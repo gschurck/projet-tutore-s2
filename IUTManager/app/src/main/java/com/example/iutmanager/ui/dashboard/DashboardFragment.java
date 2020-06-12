@@ -23,23 +23,11 @@ import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
-    /*
-    ArrayList<String> arrayList;
-    ArrayAdapter<String> adapter;*/
+
     ListView listeEtudiants;
-    //String[] etudiants;
     static ArrayList<String> etudiants = new ArrayList<String>();
     DashboardViewModel dashboardViewModel;
-    public String[] addStringToArray(String[] srcArray, String elementToAdd) {
-        String[] destArray = new String[srcArray.length+1];
 
-        for(int i = 0; i < srcArray.length; i++) {
-            destArray[i] = srcArray[i];
-        }
-
-        destArray[destArray.length - 1] = elementToAdd;
-        return destArray;
-    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =

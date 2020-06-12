@@ -28,7 +28,7 @@ public class NotificationsFragment extends Fragment {
     EditText eText, eText2;
     Button btnGet;
     TextView tvw, textDeplace;
-    int day, day2, month, month2, year, year2;
+    static int day, day2, month, month2, year, year2;
     private NotificationsViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -51,7 +51,9 @@ public class NotificationsFragment extends Fragment {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                day = dayOfMonth;
+                                month = monthOfYear + 1;
+                                eText.setText(day + "/" + (month) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
@@ -60,7 +62,7 @@ public class NotificationsFragment extends Fragment {
         });
 
         eText2=(EditText) root.findViewById(R.id.editTextDate2);
-        eText2.setInputType(InputType.TYPE_NULL);
+        eText2.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
         eText2.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -73,8 +75,10 @@ public class NotificationsFragment extends Fragment {
                 picker2 = new DatePickerDialog(getActivity(),
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eText2.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            public void onDateSet(DatePicker view2, int year2, int monthOfYear2, int dayOfMonth2) {
+                                day2 = dayOfMonth2;
+                                month2 = monthOfYear2+1;
+                                eText2.setText(day2 + "/" + (month2) + "/" + year);
                             }
                         }, year2, month2, day2);
                 picker2.show();
@@ -86,7 +90,7 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 btnGet.setText("Cours déplacé");
-                //textDeplace.setText("Le cours du " + day + "/" + month + "" + " est déplacé au " + day2 + "/" + month2 );
+                textDeplace.setText("Le cours du " + day + "/0" + month + "" + " est déplacé au " + day2 + "/0" + month2 );
             }
         });
 

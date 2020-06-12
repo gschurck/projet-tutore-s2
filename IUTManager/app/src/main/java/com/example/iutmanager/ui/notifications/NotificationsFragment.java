@@ -65,10 +65,10 @@ public class NotificationsFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-                final Calendar cldr = Calendar.getInstance();
-                day2 = cldr.get(Calendar.DAY_OF_MONTH);
-                month2 = cldr.get(Calendar.MONTH);
-                year2 = cldr.get(Calendar.YEAR);
+                final Calendar cldr2 = Calendar.getInstance();
+                day2 = cldr2.get(Calendar.DAY_OF_MONTH);
+                month2 = cldr2.get(Calendar.MONTH);
+                year2 = cldr2.get(Calendar.YEAR);
                 // date picker dialog
                 picker2 = new DatePickerDialog(getActivity(),
                         new DatePickerDialog.OnDateSetListener() {
@@ -86,7 +86,7 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 btnGet.setText("Cours déplacé");
-                textDeplace.setText("Le cours du " + day + "/" + month + "" + " est déplacé au " + day2 + "/" + month2 );
+                //textDeplace.setText("Le cours du " + day + "/" + month + "" + " est déplacé au " + day2 + "/" + month2 );
             }
         });
 

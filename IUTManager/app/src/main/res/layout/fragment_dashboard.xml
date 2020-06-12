@@ -7,8 +7,8 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <LinearLayout
-        android:layout_width="401dp"
-        android:layout_height="720dp"
+        android:layout_width="370dp"
+        android:layout_height="674dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="6dp"
         android:orientation="vertical"
@@ -18,21 +18,55 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="77dp"
             android:text="Groupe"
             android:textAlignment="center"
             android:textSize="36sp" />
 
-        <ListView
-            android:id="@+id/listeEtudiants"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="678dp"
-            android:layout_marginEnd="24dp"
-            android:scrollbars="vertical"
-            android:visibility="visible"
-            tools:visibility="visible">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        </ListView>
+            <EditText
+                android:id="@+id/editTextPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Elève"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Ajouter" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="536dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/listeEtudiants"
+                    android:layout_width="359dp"
+                    android:layout_height="667dp"
+                    android:layout_marginEnd="24dp"
+                    android:scrollbars="vertical"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

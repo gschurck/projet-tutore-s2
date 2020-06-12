@@ -1,12 +1,14 @@
 package com.example.iutmanager.ui.dashboard;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.iutmanager.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -25,35 +28,37 @@ public class DashboardFragment extends Fragment {
     ArrayAdapter<String> adapter;*/
     ListView listeEtudiants;
     //String[] etudiants;
-
+    static ArrayList<String> etudiants = new ArrayList<String>();
     DashboardViewModel dashboardViewModel;
+    public String[] addStringToArray(String[] srcArray, String elementToAdd) {
+        String[] destArray = new String[srcArray.length+1];
 
+        for(int i = 0; i < srcArray.length; i++) {
+            destArray[i] = srcArray[i];
+        }
+
+        destArray[destArray.length - 1] = elementToAdd;
+        return destArray;
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        /*ListView listView = (ListView) root.findViewById(R.id.listeEtudiants);
-
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("test");
-        /*String[] items = {"test", "oui"};
-        arrayList = new ArrayList<>(Arrays.asList(items));
-        adapter = new ArrayAdapter<String>(getActivity( , R.layout.fragment_dashboard, arrayList);
-        listView.setAdapter(adapter);*/
-/*
-        listeEtudiants = (listeEtudiants)root.findViewById(R.id.listeEtudiants);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Android");
-        arrayList.add("yes");
-        arrayList.add("no");
-
-        ArrayAdapter adapter = new ArrayAdapter(dashboardViewModel,R.layout.fragment_dashboard),
-        listeEtudiants.setAdapter(adapter);*/
-        String[] etudiants = {"Jean", "Siméon", "Martin","Manuel", "Emma"};
-        ListView listView = (ListView) root.findViewById(R.id.listeEtudiants);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, etudiants);
+        final ListView listView = (ListView) root.findViewById(R.id.listeEtudiants);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, etudiants);
         listView.setAdapter(adapter);
+
+        Button btnAjouter = (Button) root.findViewById(R.id.button);
+        final EditText textName = (EditText) root.findViewById(R.id.editTextPersonName);
+        final TextView tv = (TextView) root.findViewById(R.id.textView4);
+        btnAjouter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String addedName = textName.getText().toString();
+                adapter.add(addedName);
+            }
+        });
         return root;
     }
 }

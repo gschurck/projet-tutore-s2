@@ -56,8 +56,8 @@
 
                 <ListView
                     android:id="@+id/listeEtudiants"
-                    android:layout_width="359dp"
-                    android:layout_height="667dp"
+                    android:layout_width="422dp"
+                    android:layout_height="1525dp"
                     android:layout_marginEnd="24dp"
                     android:scrollbars="vertical"
                     android:visibility="visible"
